@@ -6,7 +6,7 @@ const Button = (props) => (
 
 const DisplayHeader = (props) => <h2>{props.value}</h2>;
 
-const Display = (props) => (
+const Statistics = (props) => (
   <div>
     {props.feedbackType} {props.value}
   </div>
@@ -75,12 +75,12 @@ const App = () => {
 
       <DisplayHeader value="statistics" />
 
-      <Display feedbackType="good" value={good} />
-      <Display feedbackType="neutral" value={neutral} />
-      <Display feedbackType="bad" value={bad} />
-      <Display feedbackType="all" value={all} />
-      <Display feedbackType="average" value={average} />
-      <Display feedbackType="positive" value={positive} />
+      <Statistics feedbackType="good" value={good} />
+      <Statistics feedbackType="neutral" value={neutral} />
+      <Statistics feedbackType="bad" value={bad} />
+      <Statistics feedbackType="all" value={all} />
+      <Statistics feedbackType="average" value={average} />
+      <Statistics feedbackType="positive" value={positive} />
     </div>
   );
 };
