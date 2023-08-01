@@ -8,21 +8,24 @@ const DisplayHeader = (props) => <h2>{props.value}</h2>;
 
 const Statistics = (props) => {
   return (
-    <div>
-      <StatisticLine text="good" value={props.good} />
-      <StatisticLine text="neutral" value={props.neutral} />
-      <StatisticLine text="bad" value={props.bad} />
-      <StatisticLine text="all" value={props.all} />
-      <StatisticLine text="average" value={props.average} />
-      <StatisticLine text="positive" value={props.positive} />
-    </div>
-  )
-}
+    <table>
+      <tbody>
+        <StatisticLine text="good" value={props.good} />
+        <StatisticLine text="neutral" value={props.neutral} />
+        <StatisticLine text="bad" value={props.bad} />
+        <StatisticLine text="all" value={props.all} />
+        <StatisticLine text="average" value={props.average} />
+        <StatisticLine text="positive" value={props.positive} />
+      </tbody>
+    </table>
+  );
+};
 
 const StatisticLine = (props) => (
-  <div>
-    {props.text} {props.value}
-  </div>
+  <tr>
+    <td>{props.text}</td>
+    <td>{props.value}</td>
+  </tr>
 );
 
 const App = () => {
@@ -89,14 +92,19 @@ const App = () => {
       <DisplayHeader value="statistics" />
 
       {all > 0 ? (
-          <div>
-            <Statistics good={good} neutral={neutral} bad={bad} all={all} average={average} positive={positive}/>
-          </div>
-        ) : (
-          <div>No feedback given</div>
-        )
-      }
-
+        <div>
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            all={all}
+            average={average}
+            positive={positive}
+          />
+        </div>
+      ) : (
+        <div>No feedback given</div>
+      )}
     </div>
   );
 };
