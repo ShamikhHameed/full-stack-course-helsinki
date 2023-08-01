@@ -6,9 +6,22 @@ const Button = (props) => (
 
 const DisplayHeader = (props) => <h2>{props.value}</h2>;
 
-const Statistics = (props) => (
+const Statistics = (props) => {
+  return (
+    <div>
+      <StatisticLine text="good" value={props.good} />
+      <StatisticLine text="neutral" value={props.neutral} />
+      <StatisticLine text="bad" value={props.bad} />
+      <StatisticLine text="all" value={props.all} />
+      <StatisticLine text="average" value={props.average} />
+      <StatisticLine text="positive" value={props.positive} />
+    </div>
+  )
+}
+
+const StatisticLine = (props) => (
   <div>
-    {props.feedbackType} {props.value}
+    {props.text} {props.value}
   </div>
 );
 
@@ -77,18 +90,13 @@ const App = () => {
 
       {all > 0 ? (
           <div>
-            <Statistics feedbackType="good" value={good} />
-            <Statistics feedbackType="neutral" value={neutral} />
-            <Statistics feedbackType="bad" value={bad} />
-            <Statistics feedbackType="all" value={all} />
-            <Statistics feedbackType="average" value={average} />
-            <Statistics feedbackType="positive" value={positive} />
+            <Statistics good={good} neutral={neutral} bad={bad} all={all} average={average} positive={positive}/>
           </div>
         ) : (
           <div>No feedback given</div>
         )
       }
-            
+
     </div>
   );
 };
