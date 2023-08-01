@@ -75,12 +75,20 @@ const App = () => {
 
       <DisplayHeader value="statistics" />
 
-      <Statistics feedbackType="good" value={good} />
-      <Statistics feedbackType="neutral" value={neutral} />
-      <Statistics feedbackType="bad" value={bad} />
-      <Statistics feedbackType="all" value={all} />
-      <Statistics feedbackType="average" value={average} />
-      <Statistics feedbackType="positive" value={positive} />
+      {all > 0 ? (
+          <div>
+            <Statistics feedbackType="good" value={good} />
+            <Statistics feedbackType="neutral" value={neutral} />
+            <Statistics feedbackType="bad" value={bad} />
+            <Statistics feedbackType="all" value={all} />
+            <Statistics feedbackType="average" value={average} />
+            <Statistics feedbackType="positive" value={positive} />
+          </div>
+        ) : (
+          <div>No feedback given</div>
+        )
+      }
+            
     </div>
   );
 };
