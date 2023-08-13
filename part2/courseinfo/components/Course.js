@@ -37,7 +37,7 @@ const Header = ({ name }) => {
   const Course = (props) => {
     return (
         <>
-        <Header name={props.course.name}/>
+        <Header name={props.course.name} />
         <Content parts={props.course.parts} />
         <Total parts={props.course.parts} />
         </>
